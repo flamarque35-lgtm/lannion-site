@@ -1,97 +1,188 @@
-<section>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lannion — Guide premium</title>
+  <meta name="theme-color" content="#0e7490" />
+  <style>
+    :root{
+      --bg:#07131a;--text:#eef7fb;--muted:#a7c1cf;--accent:#22d3ee;--accent2:#67e8f9;--gold:#fbbf24;
+      --shadow:0 16px 50px rgba(0,0,0,.25);--max:1180px;
+    }
+    *{box-sizing:border-box} html{scroll-behavior:smooth}
+    body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--text);
+      background:radial-gradient(1000px 450px at 10% -10%, rgba(34,211,238,.22), transparent 50%),
+      radial-gradient(800px 300px at 100% 0%, rgba(251,191,36,.14), transparent 40%),
+      linear-gradient(180deg,#08131b 0%,#0b1822 60%,#0d1a24 100%)}
+    a{color:inherit}.container{max-width:var(--max);margin:0 auto;padding:0 20px}
+    .nav{position:sticky;top:0;z-index:20;background:rgba(7,19,26,.72);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.05)}
+    .nav-inner{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:14px 0;flex-wrap:wrap}
+    .brand{display:flex;gap:10px;align-items:center;text-decoration:none;font-weight:800}
+    .dot{width:14px;height:14px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent2));box-shadow:0 0 18px rgba(34,211,238,.65)}
+    .nav-links{display:flex;gap:10px;flex-wrap:wrap}
+    .pill{text-decoration:none;padding:10px 14px;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.03);border-radius:999px;color:var(--muted)}
+    .hero{padding:42px 0 34px}.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:22px}
+    .hero-main,.card,.hero-visual,.hero-note{border:1px solid rgba(255,255,255,.07);background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));box-shadow:var(--shadow);border-radius:32px}
+    .hero-main{padding:34px;min-height:460px;background:radial-gradient(380px 180px at 20% 0%, rgba(34,211,238,.18), transparent 65%),linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02))}
+    .eyebrow{display:inline-flex;gap:10px;align-items:center;padding:8px 12px;border-radius:999px;background:rgba(34,211,238,.08);color:#b9f5ff;border:1px solid rgba(34,211,238,.18);margin-bottom:18px}
+    h1{margin:0 0 16px;font-size:clamp(2.2rem,5.8vw,4.8rem);line-height:.96;letter-spacing:-.04em;max-width:9ch}
+    .lead{color:#cde3ed;font-size:1.08rem;line-height:1.7;max-width:58ch;margin:0 0 22px}
+    .actions{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:26px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;padding:14px 18px;border-radius:16px;text-decoration:none;font-weight:800}
+    .btn-primary{color:#06202a;background:linear-gradient(135deg,var(--accent),var(--accent2))}
+    .btn-secondary{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08)}
+    .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;max-width:700px}
+    .stat{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06);border-radius:20px;padding:14px 16px}
+    .stat strong{display:block;font-size:1.35rem}.stat span{display:block;color:var(--muted);margin-top:4px}
+    .hero-side{display:grid;grid-template-rows:1.2fr .8fr;gap:18px}
+    .hero-visual{position:relative;overflow:hidden;min-height:280px;background:radial-gradient(220px 220px at 75% 25%, rgba(251,191,36,.20), transparent 48%),radial-gradient(280px 280px at 20% 20%, rgba(34,211,238,.18), transparent 52%),linear-gradient(180deg, #103447 0%, #0c2230 100%)}
+    .coast{position:absolute;inset:auto -10% -18% -10%;height:62%;background:linear-gradient(180deg, rgba(20,40,55,.15), rgba(20,40,55,.55));clip-path:polygon(0 45%, 7% 35%, 13% 41%, 20% 32%, 28% 40%, 35% 30%, 43% 44%, 51% 28%, 58% 38%, 67% 25%, 74% 39%, 83% 24%, 90% 36%, 100% 26%, 100% 100%, 0 100%)}
+    .sea{position:absolute;inset:auto 0 0 0;height:38%;background:linear-gradient(180deg, rgba(34,211,238,.08), rgba(34,211,238,.22))}
+    .bubble{position:absolute;background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.14);backdrop-filter:blur(10px);border-radius:22px;padding:14px 16px;max-width:220px}
+    .bubble small{display:block;color:#d7f7ff;opacity:.85;margin-bottom:4px}.bubble strong{display:block}
+    .b1{top:20px;left:20px}.b2{right:18px;top:86px}.hero-note{padding:22px}.hero-note p{color:var(--muted);line-height:1.65}
+    section{padding:24px 0}.section-head{display:flex;justify-content:space-between;gap:16px;align-items:end;margin-bottom:16px}.section-head h2{margin:0;font-size:clamp(1.5rem,3vw,2.3rem)}.section-head p{margin:0;color:var(--muted);max-width:680px;line-height:1.6}
+    .grid{display:grid;gap:16px}.grid-3{grid-template-columns:repeat(3,1fr)}.grid-2{grid-template-columns:repeat(2,1fr)}
+    .card{padding:22px;background:linear-gradient(180deg, rgba(15,34,48,.96), rgba(13,29,41,.96))}
+    .icon{width:44px;height:44px;border-radius:14px;display:grid;place-items:center;margin-bottom:12px;background:linear-gradient(135deg, rgba(34,211,238,.14), rgba(103,232,249,.08));border:1px solid rgba(34,211,238,.18);font-size:1.2rem}
+    .card h3{margin:0 0 8px}.card p{margin:0;color:var(--muted);line-height:1.65}
+    .meta{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}.tag{font-size:.92rem;color:#d3eef7;padding:8px 10px;border-radius:999px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06)}
+    .address{margin-top:14px;padding:14px 16px;border-radius:18px;background:rgba(255,255,255,.04);color:#d8eef6;border:1px solid rgba(255,255,255,.06);line-height:1.55}
+    .address a{color:#bff5ff;text-decoration:none}
+    .timeline{display:grid;gap:14px}.step{display:grid;grid-template-columns:56px 1fr;gap:14px;padding:16px;border-radius:22px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06)}
+    .num{width:56px;height:56px;border-radius:18px;display:grid;place-items:center;font-weight:900;color:#052029;background:linear-gradient(135deg,var(--gold),#fde68a)}
+    .step h3{margin:0 0 6px}.step p{margin:0;color:var(--muted);line-height:1.6}
+    .notice{margin-top:14px;padding:16px 18px;background:rgba(251,191,36,.08);border:1px solid rgba(251,191,36,.18);border-radius:18px;color:#fdeec2;line-height:1.6}
+    .map-wrap{border-radius:32px;overflow:hidden;border:1px solid rgba(255,255,255,.07);box-shadow:var(--shadow)}
+    iframe{display:block;width:100%;height:420px;border:0}
+    .footer{padding:34px 0 54px;color:var(--muted)} .foot{display:flex;justify-content:space-between;gap:18px;border-top:1px solid rgba(255,255,255,.08);padding-top:20px}
+    @media (max-width:980px){.hero-grid,.grid-3,.grid-2,.stats{grid-template-columns:1fr}.hero-side,.section-head,.foot{display:block}.nav-inner{justify-content:flex-start}iframe{height:340px}}
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="#top"><span class="dot"></span><span>Lannion — guide premium</span></a>
+      <div class="nav-links">
+        <a class="pill" href="#incontournables">Incontournables</a>
+        <a class="pill" href="#journee">Journée idéale</a>
+        <a class="pill" href="#adresses">Bonnes adresses</a>
+        <a class="pill" href="#carte">Carte</a>
+      </div>
+    </div>
+  </nav>
 
-<h2>Les incontournables de Lannion</h2>
+  <header class="hero" id="top">
+    <div class="container hero-grid">
+      <div class="hero-main">
+        <div class="eyebrow">🌊 Bretagne • Ville d’art de vivre • Porte d’entrée de la Côte de Granit Rose</div>
+        <h1>Lannion, version grand angle.</h1>
+        <p class="lead">Un site vitrine haut de gamme pour donner envie de venir, se repérer vite et profiter des meilleures étapes : cœur historique, Brélévenez, marché du jeudi, balades le long du Léguer et échappées vers Ploumanac’h ou Perros-Guirec.</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="#incontournables">Découvrir les spots</a>
+          <a class="btn btn-secondary" href="#carte">Ouvrir la carte</a>
+        </div>
+        <div class="stats">
+          <div class="stat"><strong>142</strong><span>marches pour l’escalier de Brélévenez</span></div>
+          <div class="stat"><strong>Jeudi</strong><span>grand marché au cœur de la ville</span></div>
+          <div class="stat"><strong>30 km</strong><span>de Côte de Granit Rose à explorer autour</span></div>
+        </div>
+      </div>
+      <div class="hero-side">
+        <div class="hero-visual">
+          <div class="bubble b1"><small>Spot à ne pas manquer</small><strong>Brélévenez & sa vue sur Lannion</strong></div>
+          <div class="bubble b2"><small>Échappée signature</small><strong>Ploumanac’h & rochers de granit rose</strong></div>
+          <div class="coast"></div><div class="sea"></div>
+        </div>
+        <div class="hero-note">
+          <h3>Pourquoi ce format marche bien</h3>
+          <p>Tout est pensé pour être élégant sur ordinateur, très lisible sur iPhone et facile à transformer en “appli” via Ajouter à l’écran d’accueil.</p>
+        </div>
+      </div>
+    </div>
+  </header>
 
-<div class="cards">
+  <main class="container">
+    <section id="incontournables">
+      <div class="section-head"><div><h2>Les incontournables</h2><p>Trois entrées parfaites pour découvrir Lannion avec du vrai contenu utile, sans surcharge.</p></div></div>
+      <div class="grid grid-3">
+        <article class="card">
+          <div class="icon">⛪</div><h3>Brélévenez</h3>
+          <p>L’église de la Trinité de Brélévenez est l’un des grands repères patrimoniaux de Lannion. Son monumental escalier de 142 marches est l’une des images fortes de la ville.</p>
+          <div class="meta"><span class="tag">Vue panoramique</span><span class="tag">Patrimoine</span><span class="tag">Balade photo</span></div>
+          <div class="address"><strong>Adresse :</strong> Place Ernest Laurent, 22300 Lannion<br><a href="https://maps.google.com/?q=Place+Ernest+Laurent+22300+Lannion" target="_blank" rel="noopener">Ouvrir dans Google Maps ↗</a></div>
+        </article>
+        <article class="card">
+          <div class="icon">🧺</div><h3>Le marché du jeudi</h3>
+          <p>C’est l’un des rendez-vous emblématiques de Lannion, présenté comme le plus grand marché des Côtes-d’Armor. Il anime le centre-ville dès le matin.</p>
+          <div class="meta"><span class="tag">Produits locaux</span><span class="tag">Ambiance locale</span><span class="tag">À faire le matin</span></div>
+          <div class="address"><strong>Emplacements principaux :</strong> place du Général-Leclerc, rue Jean-Savidan et rue Cie-Barbé, 22300 Lannion<br><a href="https://maps.google.com/?q=Place+du+General+Leclerc+22300+Lannion" target="_blank" rel="noopener">Ouvrir le marché ↗</a></div>
+        </article>
+        <article class="card">
+          <div class="icon">🏛️</div><h3>Chapelle des Ursulines</h3>
+          <p>Ancien couvent du XVIIe siècle, aujourd’hui utilisé comme lieu d’exposition, à quelques minutes à pied du centre.</p>
+          <div class="meta"><span class="tag">Culture</span><span class="tag">Expo</span><span class="tag">Centre-ville</span></div>
+          <div class="address"><strong>Situation :</strong> rue Jean-Savidan, à environ 300 m à l’est de la place du centre, 22300 Lannion<br><a href="https://maps.google.com/?q=Rue+Jean+Savidan+22300+Lannion" target="_blank" rel="noopener">Ouvrir dans Google Maps ↗</a></div>
+        </article>
+      </div>
+    </section>
 
-<div class="card">
-<h3>Escaliers de Brélévenez</h3>
-<p>142 marches qui mènent à l’église de Brélévenez avec une vue magnifique sur Lannion.</p>
-</div>
+    <section id="journee">
+      <div class="section-head"><div><h2>Une journée idéale à Lannion</h2><p>Une proposition simple, premium et crédible pour structurer la visite.</p></div></div>
+      <div class="grid grid-2">
+        <div class="card">
+          <div class="timeline">
+            <div class="step"><div class="num">1</div><div><h3>9h00 — Marché & centre historique</h3><p>Commencez par le marché du jeudi, puis prolongez avec les rues anciennes et les quais du Léguer.</p></div></div>
+            <div class="step"><div class="num">2</div><div><h3>11h00 — Montée à Brélévenez</h3><p>Le grand classique : l’escalier, l’église et le point de vue pour les plus belles photos de la ville.</p></div></div>
+            <div class="step"><div class="num">3</div><div><h3>13h00 — Déjeuner à Lannion</h3><p>Table gastronomique, crêperie ou pause décontractée selon l’humeur. L’idée : rester dans le cœur de ville ou proche de Brélévenez.</p></div></div>
+            <div class="step"><div class="num">4</div><div><h3>15h30 — Échappée Côte de Granit Rose</h3><p>Direction Perros-Guirec et Ploumanac’h pour finir la journée sur les rochers roses et le sentier côtier.</p></div></div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="icon">✨</div><h3>Pourquoi cette séquence fonctionne</h3>
+          <p>Elle combine une vraie vie locale le matin, un marqueur patrimonial fort à midi, puis la signature paysagère de la destination dans l’après-midi.</p>
+          <div class="notice">Astuce : sur iPhone, cette page fonctionne très bien comme mini-app. Ouvrez le site dans Safari, puis <strong>Partager → Ajouter à l’écran d’accueil</strong>.</div>
+        </div>
+      </div>
+    </section>
 
-<div class="card">
-<h3>Centre historique</h3>
-<p>Maisons à colombages, ruelles anciennes et ambiance bretonne autour de la place du Général-Leclerc.</p>
-</div>
+    <section id="adresses">
+      <div class="section-head"><div><h2>Bonnes adresses & points utiles</h2><p>Des adresses solides pour préparer une vraie visite, avec un mélange de pratique et de gourmand.</p></div></div>
+      <div class="grid grid-2">
+        <article class="card">
+          <div class="icon">ℹ️</div><h3>Office de tourisme</h3>
+          <p>Le bureau d’information touristique de Lannion se trouve sur les quais, à proximité du Léguer et du cœur historique. Parfait pour récupérer des idées de balades et des conseils locaux.</p>
+          <div class="address"><strong>Adresse :</strong> 2 quai de Viarmes, 22300 Lannion<br><a href="https://maps.google.com/?q=2+Quai+de+Viarmes+22300+Lannion" target="_blank" rel="noopener">Ouvrir dans Google Maps ↗</a></div>
+        </article>
+        <article class="card">
+          <div class="icon">🍽️</div><h3>Le Brélévenez</h3>
+          <p>Une table reconnue à Lannion, distinguée Bib Gourmand par le Guide MICHELIN 2025. C’est une bonne option pour positionner le site sur un registre plus premium.</p>
+          <div class="address"><strong>Adresse :</strong> 1 rue Stang ar Béo, 22300 Lannion<br><a href="https://maps.google.com/?q=1+Rue+Stang+ar+Beo+22300+Lannion" target="_blank" rel="noopener">Ouvrir dans Google Maps ↗</a></div>
+        </article>
+      </div>
+    </section>
 
-<div class="card">
-<h3>Le Léguer</h3>
-<p>Rivière qui traverse la ville, idéale pour une promenade au calme.</p>
-</div>
+    <section id="autour">
+      <div class="section-head"><div><h2>Autour de Lannion</h2><p>La grande force de la ville : être une base idéale pour rayonner vers la Côte de Granit Rose.</p></div></div>
+      <div class="grid grid-3">
+        <article class="card"><div class="icon">🪨</div><h3>Ploumanac’h</h3><p>Rochers de granit rose, sentier des Douaniers et vues iconiques : l’escapade signature à quelques kilomètres.</p></article>
+        <article class="card"><div class="icon">🏖️</div><h3>Perros-Guirec</h3><p>Grande station balnéaire pour prolonger la journée entre plage, promenade et lumière de fin d’après-midi.</p></article>
+        <article class="card"><div class="icon">🌅</div><h3>Côte de Granit Rose</h3><p>Un paysage littoral rare sur environ 30 km, entre chaos rocheux, lande et mer.</p></article>
+      </div>
+    </section>
 
-</div>
+    <section id="carte">
+      <div class="section-head"><div><h2>Carte</h2><p>Une base simple pour situer Lannion et lancer un itinéraire.</p></div></div>
+      <div class="map-wrap"><iframe src="https://www.google.com/maps?q=Lannion&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Carte de Lannion"></iframe></div>
+    </section>
 
-</section>
-
-
-<section>
-
-<h2>À voir autour de Lannion</h2>
-
-<div class="cards">
-
-<div class="card">
-<h3>Ploumanac’h</h3>
-<p>Village emblématique de la Côte de Granit Rose avec ses rochers spectaculaires.</p>
-</div>
-
-<div class="card">
-<h3>Perros-Guirec</h3>
-<p>Station balnéaire avec plages magnifiques et sentier des douaniers.</p>
-</div>
-
-<div class="card">
-<h3>Île Grande</h3>
-<p>Petit paradis pour les balades et les couchers de soleil.</p>
-</div>
-
-</div>
-
-</section>
-
-
-<section>
-
-<h2>Bonnes adresses à Lannion</h2>
-
-<div class="cards">
-
-<div class="card">
-<h3>Le Brélévenez</h3>
-<p>Restaurant réputé pour sa cuisine bretonne et ses produits locaux.</p>
-</div>
-
-<div class="card">
-<h3>Crêperie Saint-Yves</h3>
-<p>Une des meilleures crêperies du centre-ville.</p>
-</div>
-
-<div class="card">
-<h3>Le Café Théodore</h3>
-<p>Bar culturel très vivant avec concerts et événements.</p>
-</div>
-
-</div>
-
-</section>
-
-
-<section>
-
-<h2>Marché de Lannion</h2>
-
-<p>
-Chaque jeudi matin, le marché de Lannion est l’un des plus grands de Bretagne.  
-On y trouve produits locaux, fromages, fruits de mer et spécialités bretonnes.
-</p>
-
-</section>
-
-
-<section>
-
-<h2>Carte des lieux</h2>
-
-<iframe src="https://www.google.com/maps?q=Lannion&output=embed"></iframe>
-
-</section>
+    <footer class="footer">
+      <div class="foot">
+        <div><strong>Lannion — guide premium</strong><br><span>Version prête à publier sur GitHub Pages.</span></div>
+        <div><span>Remplacez simplement le contenu de <strong>index.html</strong> par ce fichier.</span></div>
+      </div>
+    </footer>
+  </main>
+</body>
+</html>
